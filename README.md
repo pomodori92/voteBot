@@ -18,4 +18,6 @@ It's writed in Javascript and JQuery with Puppeteer.
 
 6. Save it and close the file.
 
-7. Launch runVoteBot.bat, if you have Windows, and watch voteBot to vote for you.
+7. Launch runVoteBot.bat, if you have Windows, and watch voteBot to vote for you infinite times with a pause after 23 votes.
+
+8. Alternatively, you can launch voteBot.js to vote one time.
