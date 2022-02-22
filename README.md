@@ -1,16 +1,18 @@
 # voteBot
 VoteBot is a bot to automatically vote on https://poll.fm/.
+
 Originally created by pomodori92, big thanks to them. Fixed up some html paths being outdated.
-It's writed in Javascript and JQuery with Puppeteer.
+
+It's written in Javascript and JQuery with Puppeteer.
 
 
 # How to use
 
-1. Downoad and install Node.js.
+1. Download and install Node.js.
 
 2. Download and install Puppeteer.
 
-3. Open voteBot.js with Notepad or your favourite code editor.
+3. Open voteBot.js with Notepad.
 
 4. Change the pollURL value with your poll URL.
 
