@@ -1,6 +1,6 @@
 # voteBot
 VoteBot is a bot to automatically vote on https://poll.fm/.
-
+Originally created by pomodori92, big thanks to them. Fixed up some html paths being outdated.
 It's writed in Javascript and JQuery with Puppeteer.
 
 
