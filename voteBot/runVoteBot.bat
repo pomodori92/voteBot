@@ -10,7 +10,7 @@ IF /I "%%G" EQU "23" (
 
 call :sub "%%G"
 
-timeout 180
+timeout 5
 )
 
 timeout 2
