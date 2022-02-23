@@ -16,7 +16,7 @@ It's written in Javascript and JQuery with Puppeteer.
 
 3. Open voteBot.js with Notepad.
 
-4. Change the pollURL value with your poll URL, which can be found in the inspect element menu.
+4. Change the pollURL and answerID in the .js file to the desired values, which can be found in the inspect element menu of the poll page. (Default votes for the best Runner of the Week)
 
 5. Save it and close the file.
 
