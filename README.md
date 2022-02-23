@@ -26,4 +26,4 @@ It's written in Javascript and JQuery with Puppeteer.
 
 8. From personal experience, the website will block your ip from voting after a certain amount of votes from the same ip, so the best way to circumvent this from my experience is to set up a macro to reconnect to a VPN server every minute or so (it works even if you reconnect to the same server). 
 
-9. Report any bugs to me directly at my discord, Moderatuh#3154
+9. Report any bugs to me directly at my discord, Moderatuh#3154, or simply make a pull request.
