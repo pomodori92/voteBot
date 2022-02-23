@@ -29,7 +29,7 @@ const puppeteer = require('puppeteer');
 	setTimeout(function() {
 		browser.close();
 	}, 500);
-	console.log('Finished.');
+	console.log('Finished Iteration');
 	 
 
 })();
