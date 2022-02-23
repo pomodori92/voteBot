@@ -7,8 +7,8 @@ const puppeteer = require('puppeteer');
 	const browser = await puppeteer.launch({ headless: false });
 	const page = await browser.newPage();
 	await page.setViewport({
-		width: 1280,
-		height: 720,
+		width: 1920,
+		height: 1080,
 		deviceScaleFactor: 3,
 		isMobile: false,
 		hasTouch: false,
