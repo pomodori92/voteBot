@@ -20,8 +20,10 @@ It's written in Javascript and JQuery with Puppeteer.
 
 5. Save it and close the file.
 
-6. Launch runVoteBot.bat and watch voteBot vote for the desired choice infinite times, however it will stop counting the votes after about 20 votes.
+6. Launch runVoteBot.bat and watch voteBot vote for the desired choice infinite times, however it will stop counting the votes after about 20 votes. Refer to instruction #8 to circumvent this.
 
 7. Alternatively, you can launch voteBot.js to vote one time.
 
-8. From personal experience, the website will block your ip from voting after a certain amount of votes from the same ip, so the best way to circumvent this from my experience is to set up a macro to reconnect to a VPN server every minute or so. This can be done with any simple macro recorder.
+8. From personal experience, the website will block your ip from voting after a certain amount of votes from the same ip, so the best way to circumvent this from my experience is to set up a macro to reconnect to a VPN server every minute or so (it works even if you reconnect to the same server). 
+
+9. Report any bugs to me directly at my discord, Moderatuh#3154
