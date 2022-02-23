@@ -27,3 +27,24 @@ It's written in Javascript and JQuery with Puppeteer.
 8. From personal experience, the website will block your ip from voting after a certain amount of votes from the same ip, so the best way to circumvent this from my experience is to set up a macro to reconnect to a VPN server every minute or so (it works even if you reconnect to the same server). 
 
 9. Report any bugs to me directly at my discord, Moderatuh#3154, or simply make a pull request.
+
+
+# Credits
+
+grey8pumpkin - Gave me the idea to fix this in the first place
+
+pomodori92 - Making the original program
+
+# Requirements
+
+1. Puppeteer installed into the directory
+
+2. At least 4gb of RAM
+
+3. Preferably a dedicated GPU to reduce load on CPU
+
+4. Node.js installed into your system
+
+5. A cpu from the 21st century
+
+(As a benchmark, I'm running with a 5900x, 16gb RAM, RX 6600, and can only run about 14 instances at once before the performance gets so bad it's not worth opening any more.)
