@@ -3,6 +3,8 @@ VoteBot is a bot to automatically vote on https://poll.fm/.
 
 Originally created by pomodori92, big thanks to them. Fixed up some html paths being outdated.
 
+Created for the sole purpose of beating Tanner, much love <3.
+
 It's written in Javascript and JQuery with Puppeteer.
 
 
