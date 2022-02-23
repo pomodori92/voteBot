@@ -16,15 +16,3 @@ timeout 5
 timeout 2
 
 )
-set /p DUMMY=Press enter to continue.
-GOTO :eof
-
-:subroutine
-	echo %count%
-	set /a count+=1
-GOTO :eof
-
-:sub
-	echo %count%
-	set /a count=1
-GOTO :eof
