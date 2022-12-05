@@ -1,8 +1,6 @@
 # voteBot
 VoteBot is a bot to automatically vote on https://poll.fm/.
 
-Originally created by pomodori92, big thanks to them. The original program was outdated and did not work anymore, so I updated some html paths and delays.
-
 It's written in Javascript and JQuery with Puppeteer.
 
 WARNING: This program takes up an ungodly amount of storage space due to puppeteer creating a new Chromium profile for each vote. In order to clean the files created, go to your system temp folder and delete every folder that says puppeteer. It took around 12 hours to amass 100 GB of data for me.
@@ -31,22 +29,19 @@ WARNING: This program takes up an ungodly amount of storage space due to puppete
 
 # Credits
 
-grey8pumpkin - Gave me the idea to fix this in the first place
+A big thanks to Moderatuh, who made some fixes and updates to all files.
 
-pomodori92 - Making the original program
-
-Owen Horevay - Giving me a reason to make this
 
 # Requirements
 
-1. Puppeteer installed into the directory
+1. Puppeteer installed into the directory.
 
-2. At least 4gb of RAM
+2. At least 4GB of RAM.
 
-3. Preferably a dedicated GPU to reduce load on CPU
+3. Preferably a dedicated GPU to reduce load on CPU.
 
-4. Node.js installed into your system
+4. Node.js installed into your system.
 
-5. A cpu from the 21st century
+5. A cpu from the 21st century.
 
 (As a benchmark, I'm running with a 5900x, 16gb RAM, RX 6600, and can only run about 14 instances at once before the performance gets so bad it's not worth opening any more.)
