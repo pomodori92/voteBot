@@ -6,7 +6,12 @@ const puppeteer = require('puppeteer');
 	const pollURL = process.env.POLLURL;
 	const answerId = process.env.ANSWERID;
 
-	const browser = await puppeteer.launch({ headless: false });
+	const browser = await puppeteer.launch({
+		args: [
+			'--no-sandbox',
+			'--disable-setuid-sandbox'
+		]
+	});
 	const page = await browser.newPage();
 	await page.setViewport({
 		width: 1920,
