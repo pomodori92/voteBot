@@ -1,47 +1,77 @@
 # voteBot
-VoteBot is a bot to automatically vote on https://poll.fm/.
 
-It's written in Javascript and JQuery with Puppeteer.
-
-WARNING: This program takes up an ungodly amount of storage space due to puppeteer creating a new Chromium profile for each vote. In order to clean the files created, go to your system temp folder and delete every folder that says puppeteer. It took around 12 hours to amass 100 GB of data for me.
+VoteBot is a JavaScript and jQuery-based bot designed for automated voting on [Poll.fm/](https://poll.fm/). It utilizes Puppeteer for its functionality.
 
 
-# How to use
+## How to Use
 
-1. Download and install Node.js, which you can get at https://nodejs.org/.
+1. [Download and install Node.js](https://nodejs.org/).
 
-2. Download and install Puppeteer inside the file directory. This can be done by opening File Explorer to the directory that the bot is located in, clicking File, clicking Open Windows Powershell, then running the command ```npm install puppeteer```
+2. Install [Puppeteer](https://pptr.dev/) within the bot's directory. You can do this by opening File Explorer to the bot's location, clicking "File," opening Powershell or Terminal session, and then running the command:
 
-3. Open voteBot.js with Notepad.
+    ```npm i puppeteer```
+   
+    or using **yarn**:
+   
+    ```yarn add puppeteer```
+    
+    or using **pnpm**:
+   
+    ```pnpm i puppeteer```
 
-4. Change the pollURL and answerID in the .js file to the desired values, which can be found in the inspect element menu of the poll page.
+3. Open **voteBot.js** file.
 
-5. Save it and close the file.
+4. Modify the **pollURL** and **answerID** to your desired values. You can find these values in the browser **Inspect element** menu of the poll page.
 
-6. Launch runVoteBot.bat and watch voteBot vote for the desired choice infinite times, however it will stop counting the votes after about 20 votes. Refer to instruction #8 to circumvent this.
+5. Save your changes.
 
-7. Alternatively, you can launch voteBot.js to vote one time.
+6. Based on your operating system you must execute:
 
-8. From personal experience, the website will block your ip from voting after a certain amount of votes from the same ip, so the best way to circumvent this from my experience is to set up a macro to reconnect to a VPN server every minute or so (it works even if you reconnect to the same server). 
+   ```runVoteBot.bat``` on Windows,
 
-9. Report any bugs by making a pull request.
+   ```runVoteBot.sh``` on Linux.
+
+    6.1. As an alternative, if you want to vote just once you can execute:
+
+     ```node voteBot\voteBot.js```
 
 
-# Credits
+## System Requirements
 
-A big thanks to Moderatuh, who made some fixes and updates to all files.
+1. Installation of Puppeteer in the specified directory.
+
+2. A minimum of 4GB of RAM.
+
+3. Ideally, a dedicated GPU is recommended to alleviate CPU workload.
+
+4. Node.js should be installed on your system.
+
+5. A modern CPU from the 21st century is required.
 
 
-# Requirements
+## Warnings
 
-1. Puppeteer installed into the directory.
+- There's a significant drawback to using this program: it consumes a substantial amount of storage space because Puppeteer generates a new Chromium profile for each vote. To manage this storage issue, you can manually delete the folders labeled "puppeteer" in your system's temporary folder. In my experience, it accumulated approximately 100 GB of data in just 12 hours.
 
-2. At least 4GB of RAM.
+- Using automated voting scripts in a manner that violates the terms of service or legality of a website may have consequences. Be sure to use such tools responsibly and within the boundaries of the website's policies and applicable laws.
 
-3. Preferably a dedicated GPU to reduce load on CPU.
+- My observation is that performance notably declines when running about 14 instances simultaneously. Beyond this threshold, adding more instances becomes impractical.
 
-4. Node.js installed into your system.
+- For context, I'm working on a system equipped with:
+  - Intel i7 7700x,
+  - 16 GB of RAM,
+  - Nvidia GeForce GTX 1050.
 
-5. A cpu from the 21st century.
+- In my experience, the website may block your IP address from voting after a certain number of votes from the same IP. To overcome this, it's recommended to set up a macro to reconnect to a VPN server approximately every minute (even reconnecting to the same server works).
 
-(As a benchmark, I'm running with a 5900x, 16gb RAM, RX 6600, and can only run about 14 instances at once before the performance gets so bad it's not worth opening any more.)
+
+## Contributors
+
+- [Moderatuh](https://github.com/Moderatuh), who has made valuable fixes and updates to all files, including this Readme file. Your contributions are greatly appreciated.
+
+
+## Issues and Requests
+
+If you encounter any bugs, please report them by creating a [new issue](https://github.com/pomodori92/voteBot/issues).
+
+Feel free to submit a [pull requests](https://github.com/pomodori92/voteBot/pulls). They are highly encouraged!
