@@ -1,77 +1,134 @@
 # voteBot
 
-VoteBot is a JavaScript and jQuery-based bot designed for automated voting on [Poll.fm/](https://poll.fm/). It utilizes Puppeteer for its functionality.
+voteBot is a small Node.js application that uses Puppeteer to submit a selected answer on a Poll.fm poll. It does not use jQuery.
 
+Use the project only where automated voting is permitted by the site's terms and applicable law. Automated voting can lead to account or IP restrictions.
 
-## How to Use
+## Requirements
 
-1. [Download and install Node.js](https://nodejs.org/).
+- Node.js 24.20.0 LTS, pinned in `.nvmrc` and `.node-version`.
+- npm 12.0.2, pinned by the `packageManager` field in `package.json`.
+- A supported Windows, macOS, or Linux environment for Chrome for Testing.
 
-2. Install [Puppeteer](https://pptr.dev/) within the bot's directory. You can do this by opening File Explorer to the bot's location, clicking "File," opening Powershell or Terminal session, and then running the command:
+Puppeteer 25.9.0 supports Node.js 22.12.0 and newer. Node.js 24.20.0 is the tested project runtime.
 
-    ```npm i puppeteer```
-   
-    or using **yarn**:
-   
-    ```yarn add puppeteer```
-    
-    or using **pnpm**:
-   
-    ```pnpm i puppeteer```
+## Installation
 
-3. Open **voteBot.js** file.
+Clone the repository, select the pinned Node.js version with your version manager, and install the locked dependency graph:
 
-4. Modify the **pollURL** and **answerID** to your desired values. You can find these values in the browser **Inspect element** menu of the poll page.
+```sh
+npm ci
+```
 
-5. Save your changes.
+Puppeteer normally downloads its compatible Chrome for Testing build during installation. If your package manager blocks installation scripts, install the browser explicitly:
 
-6. Based on your operating system you must execute:
+```sh
+npx puppeteer browsers install chrome
+```
 
-   ```runVoteBot.bat``` on Windows,
+Do not use `npm install puppeteer` for routine setup. That command changes the pinned dependency and lockfile.
 
-   ```runVoteBot.sh``` on Linux.
+## Configuration
 
-    6.1. As an alternative, if you want to vote just once you can execute:
+`POLLURL` and `ANSWERID` are required. `ANSWERID` is the poll input element ID, such as `PDI_answer50714388`.
 
-     ```node voteBot\voteBot.js```
+PowerShell:
 
+```powershell
+$env:POLLURL = 'https://poll.fm/11051204'
+$env:ANSWERID = 'PDI_answer50714388'
+npm start
+```
 
-## System Requirements
+Windows Command Prompt:
 
-1. Installation of Puppeteer in the specified directory.
+```bat
+set POLLURL=https://poll.fm/11051204
+set ANSWERID=PDI_answer50714388
+npm start
+```
 
-2. A minimum of 4GB of RAM.
+Bash:
 
-3. Ideally, a dedicated GPU is recommended to alleviate CPU workload.
+```sh
+export POLLURL='https://poll.fm/11051204'
+export ANSWERID='PDI_answer50714388'
+npm start
+```
 
-4. Node.js should be installed on your system.
+The application validates both values before launching Chrome.
 
-5. A modern CPU from the 21st century is required.
+## Running repeated iterations
 
+The launch scripts resolve `voteBot.js` relative to their own location, so they work regardless of the current directory.
 
-## Warnings
+Windows Command Prompt:
 
-- There's a significant drawback to using this program: it consumes a substantial amount of storage space because Puppeteer generates a new Chromium profile for each vote. To manage this storage issue, you can manually delete the folders labeled "puppeteer" in your system's temporary folder. In my experience, it accumulated approximately 100 GB of data in just 12 hours.
+```bat
+voteBot\runVoteBot.bat
+```
 
-- Using automated voting scripts in a manner that violates the terms of service or legality of a website may have consequences. Be sure to use such tools responsibly and within the boundaries of the website's policies and applicable laws.
+PowerShell 7:
 
-- My observation is that performance notably declines when running about 14 instances simultaneously. Beyond this threshold, adding more instances becomes impractical.
+```powershell
+pwsh -File .\voteBot\runVoteBot.ps1
+```
 
-- For context, I'm working on a system equipped with:
-  - Intel i7 7700x,
-  - 16 GB of RAM,
-  - Nvidia GeForce GTX 1050.
+The PowerShell launcher accepts optional iteration and delay settings:
 
-- In my experience, the website may block your IP address from voting after a certain number of votes from the same IP. To overcome this, it's recommended to set up a macro to reconnect to a VPN server approximately every minute (even reconnecting to the same server works).
+```powershell
+pwsh -File .\voteBot\runVoteBot.ps1 -MaxIterations 100 -DelaySeconds 2
+```
 
+Linux or macOS with Bash:
 
-## Contributors
+```sh
+./voteBot/runVoteBot.sh
+```
 
-- [Moderatuh](https://github.com/Moderatuh), who has made valuable fixes and updates to all files, including this Readme file. Your contributions are greatly appreciated.
+The Windows batch and PowerShell launchers stop after 1,000,000 iterations by default. The Bash script continues until interrupted. All launchers stop immediately when an iteration fails.
 
+## Browser sandbox
 
-## Issues and Requests
+Chrome's sandbox remains enabled by default.
 
-If you encounter any bugs, please report them by creating a [new issue](https://github.com/pomodori92/voteBot/issues).
+Only in an isolated Linux container that cannot run Chrome otherwise, explicitly opt out before starting the bot:
 
-Feel free to submit a [pull requests](https://github.com/pomodori92/voteBot/pulls). They are highly encouraged!
+```sh
+export PUPPETEER_NO_SANDBOX=1
+npm start
+```
+
+Disabling Chrome's sandbox weakens process isolation. Never use this setting for untrusted pages or on a general-purpose workstation.
+
+## Storage
+
+Puppeteer stores downloaded browser binaries in its shared user cache. Each run also creates a temporary browser profile. voteBot now awaits `browser.close()` on both success and failure, reducing abandoned processes and profiles. Abrupt process termination can still leave temporary data behind.
+
+## Verification
+
+Run static syntax validation, unit tests, a local browser smoke test, and dependency audit:
+
+```sh
+npm run check
+npm test
+npm run test:smoke
+npm run audit
+```
+
+The smoke test opens a local `data:` page. It never visits Poll.fm or submits a vote.
+
+The smoke test honors `PUPPETEER_NO_SANDBOX` for restricted CI or container environments, using the same explicit opt-in as the application.
+
+GitHub Actions runs checks on Windows and Linux and performs the browser smoke test on Linux. Dependabot checks npm and GitHub Actions dependencies weekly.
+
+## Updating and rollback
+
+Update dependencies through a reviewed pull request and keep `package.json` and `package-lock.json` together. After any update, run every verification command above.
+
+To roll back a dependency update, restore the previous `package.json` and `package-lock.json` together, then run `npm ci` and the verification commands. No application data migration is involved.
+
+## Issues and contributions
+
+- Report a bug through [GitHub Issues](https://github.com/pomodori92/voteBot/issues).
+- Submit changes through [pull requests](https://github.com/pomodori92/voteBot/pulls).
