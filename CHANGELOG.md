@@ -4,7 +4,7 @@ This file records every commit reachable from the current branch. Each commit ma
 
 Versions are listed newest first. When branches diverged, non-merge commits are ordered by author timestamp; the merge commit closes its version series. These are historical changelog versions and do not imply that matching Git tags exist.
 
-## [Unreleased]
+## [1.3.9] - 2026-08-29
 
 - Reconstructed the changelog so every existing commit has its own version and commit reference.
 
