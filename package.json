@@ -1,0 +1,29 @@
+{
+  "name": "votebot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Puppeteer-based Poll.fm voting automation.",
+  "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pomodori92/voteBot.git"
+  },
+  "main": "voteBot/voteBot.js",
+  "scripts": {
+    "start": "node voteBot/voteBot.js",
+    "check": "node --check voteBot/voteBot.js",
+    "test": "node --test test/voteBot.test.js",
+    "test:smoke": "node --test test/browser-smoke.test.js",
+    "audit": "npm audit --omit=dev"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "npm@12.0.2",
+  "allowScripts": {
+    "puppeteer": true
+  },
+  "dependencies": {
+    "puppeteer": "25.9.0"
+  }
+}
