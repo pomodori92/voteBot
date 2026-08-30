@@ -128,6 +128,13 @@ Update dependencies through a reviewed pull request and keep `package.json` and 
 
 To roll back a dependency update, restore the previous `package.json` and `package-lock.json` together, then run `npm ci` and the verification commands. No application data migration is involved.
 
+## Contributors
+
+Special thanks to:
+
+- [@Moderatuh](https://github.com/Moderatuh),
+- [@Cloud9Developer](https://github.com/Cloud9Developer).
+
 ## Issues and contributions
 
 - Report a bug through [GitHub Issues](https://github.com/pomodori92/voteBot/issues).
